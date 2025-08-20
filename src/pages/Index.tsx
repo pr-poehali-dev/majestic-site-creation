@@ -45,7 +45,7 @@ const Index = () => {
       <div className="miami-particles"></div>
       
       {/* Navigation */}
-      <nav className="bg-black/20 backdrop-blur-sm border-b border-orange-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md border-b border-orange-500/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -64,19 +64,18 @@ const Index = () => {
               <a href="#guide" className="text-white hover:text-purple-400 transition-colors font-medium">Как начать играть</a>
             </div>
             
-            {/* RageMP Download */}
-            <a href="https://rage.mp/" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 border-none">
-                <Icon name="Download" size={18} className="mr-2" />
-                Скачать RageMP
+            {/* Mobile menu button - can be added later */}
+            <div className="md:hidden">
+              <Button variant="ghost" size="sm" className="text-white">
+                <Icon name="Menu" size={20} />
               </Button>
-            </a>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 pt-32 overflow-hidden">
         <div className="absolute inset-0 miami-waves"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-amber-500/10"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -167,8 +166,57 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Guide Section */}
+      <section id="guide" className="py-16 bg-black/20 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">Как начать играть</h3>
+            <p className="text-gray-300">Простые шаги для старта на нашем сервере</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">1</span>
+              </div>
+              <h4 className="text-white font-semibold mb-2">Скачайте RageMP</h4>
+              <p className="text-gray-400 text-sm mb-3">Установите клиент для подключения к серверу</p>
+              <a 
+                href="https://rage.mp/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-orange-400 hover:text-orange-300 transition-colors font-medium"
+              >
+                <Icon name="Download" size={16} className="mr-1" />
+                Скачать
+              </a>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">2</span>
+              </div>
+              <h4 className="text-white font-semibold mb-2">Создайте персонажа</h4>
+              <p className="text-gray-400 text-sm">Придумайте имя и историю вашего героя</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">3</span>
+              </div>
+              <h4 className="text-white font-semibold mb-2">Изучите правила</h4>
+              <p className="text-gray-400 text-sm">Ознакомьтесь с правилами RolePlay</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">4</span>
+              </div>
+              <h4 className="text-white font-semibold mb-2">Начните жизнь!</h4>
+              <p className="text-gray-400 text-sm">Стройте карьеру в солнечном Майами</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Donation Section */}
-      <section id="donate" className="py-16 bg-black/30 backdrop-blur-sm">
+      <section id="donate" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Пополнить баланс</h3>
@@ -263,46 +311,6 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Guide Section */}
-      <section id="guide" className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">Как начать играть</h3>
-            <p className="text-gray-300">Простые шаги для старта на нашем сервере</p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">1</span>
-              </div>
-              <h4 className="text-white font-semibold mb-2">Скачайте RageMP</h4>
-              <p className="text-gray-400 text-sm">Установите клиент для подключения к серверу</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">2</span>
-              </div>
-              <h4 className="text-white font-semibold mb-2">Создайте персонажа</h4>
-              <p className="text-gray-400 text-sm">Придумайте имя и историю вашего героя</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">3</span>
-              </div>
-              <h4 className="text-white font-semibold mb-2">Изучите правила</h4>
-              <p className="text-gray-400 text-sm">Ознакомьтесь с правилами RolePlay</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">4</span>
-              </div>
-              <h4 className="text-white font-semibold mb-2">Начните жизнь!</h4>
-              <p className="text-gray-400 text-sm">Стройте карьеру в солнечном Майами</p>
-            </div>
           </div>
         </div>
       </section>
