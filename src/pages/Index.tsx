@@ -5,9 +5,16 @@ import Icon from "@/components/ui/icon";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-orange-900 via-amber-800 to-red-900 relative overflow-hidden">
+      {/* Animated Miami Background */}
+      <div className="absolute inset-0 miami-animated-bg opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-amber-500/10 animate-pulse"></div>
+      <div className="relative z-10">
+      {/* Miami Particles Effect */}
+      <div className="miami-particles"></div>
+      
       {/* Navigation */}
-      <nav className="bg-black/20 backdrop-blur-sm border-b border-purple-500/20">
+      <nav className="bg-black/20 backdrop-blur-sm border-b border-orange-500/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -39,7 +46,8 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent"></div>
+        <div className="absolute inset-0 miami-waves"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-amber-500/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-6 bg-orange-500/20 text-orange-200 border-orange-500/30">
@@ -67,7 +75,7 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="py-16 bg-black/20">
+      <section className="py-16 bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-center text-white mb-12">Почему выбирают нас</h3>
           <div className="grid md:grid-cols-3 gap-8">
@@ -129,7 +137,7 @@ const Index = () => {
       </section>
 
       {/* Donation Section */}
-      <section id="donate" className="py-16 bg-black/20">
+      <section id="donate" className="py-16 bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Поддержать проект</h3>
@@ -237,7 +245,7 @@ const Index = () => {
       </section>
 
       {/* Contacts */}
-      <section className="py-16 bg-black/20">
+      <section className="py-16 bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Контакты</h3>
@@ -273,7 +281,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 py-8 border-t border-purple-500/20">
+      <footer className="bg-black/40 backdrop-blur-sm py-8 border-t border-orange-500/20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded flex items-center justify-center">
@@ -286,6 +294,7 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 };
