@@ -6,15 +6,28 @@ import Icon from "@/components/ui/icon";
 const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Miami GTA 5 Background */}
+      {/* Miami GTA 5 Background - Full Site */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={{ backgroundImage: 'url("/img/682d4d87-cf5b-46d3-a3bc-ccc97ebddfb6.jpg")' }}
+        className="fixed inset-0 bg-cover bg-top bg-no-repeat w-full h-full" 
+        style={{ 
+          backgroundImage: 'url("/img/682d4d87-cf5b-46d3-a3bc-ccc97ebddfb6.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top'
+        }}
       ></div>
+      
+      {/* Falling Stars Effect */}
+      <div className="falling-stars">
+        <div className="star1"></div>
+        <div className="star2"></div>
+        <div className="star3"></div>
+        <div className="star4"></div>
+        <div className="star5"></div>
+      </div>
+      
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
-      <div className="absolute inset-0 miami-animated-bg opacity-20"></div>
-      <div className="relative z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
+      <div className="relative z-20">
       {/* Miami Particles Effect */}
       <div className="miami-particles"></div>
       
