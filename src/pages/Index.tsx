@@ -5,10 +5,15 @@ import Icon from "@/components/ui/icon";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-900 via-amber-800 to-red-900 relative overflow-hidden">
-      {/* Animated Miami Background */}
-      <div className="absolute inset-0 miami-animated-bg opacity-30"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-amber-500/10 animate-pulse"></div>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Miami GTA 5 Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+        style={{ backgroundImage: 'url("/img/682d4d87-cf5b-46d3-a3bc-ccc97ebddfb6.jpg")' }}
+      ></div>
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+      <div className="absolute inset-0 miami-animated-bg opacity-20"></div>
       <div className="relative z-10">
       {/* Miami Particles Effect */}
       <div className="miami-particles"></div>
