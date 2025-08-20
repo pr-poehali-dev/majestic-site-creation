@@ -1,9 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [donateLogin, setDonateLogin] = useState("");
+  const [donateAmount, setDonateAmount] = useState("");
+  
+  const handleDonate = () => {
+    if (!donateLogin || !donateAmount) {
+      alert('Пожалуйста, заполните все поля');
+      return;
+    }
+    window.open(`https://anypay.io/?login=${donateLogin}&amount=${donateAmount}`, '_blank');
+  };
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Miami GTA 5 Background - Full Site */}
@@ -158,64 +171,96 @@ const Index = () => {
       <section id="donate" className="py-16 bg-black/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">Поддержать проект</h3>
+            <h3 className="text-3xl font-bold text-white mb-4">Пополнить баланс</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Ваша поддержка помогает развивать сервер и добавлять новые возможности
+              Пополните баланс своего аккаунта и получайте привилегии в игре
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-orange-900/30 to-slate-900/30 border-orange-500/20">
+          
+          <div className="max-w-md mx-auto">
+            <Card className="bg-gradient-to-br from-orange-900/50 to-slate-900/50 border-orange-500/30">
               <CardHeader className="text-center">
-                <CardTitle className="text-white text-xl">Житель</CardTitle>
-                <div className="text-3xl font-bold text-orange-400">₽299</div>
+                <CardTitle className="text-white text-2xl flex items-center justify-center gap-2">
+                  <Icon name="CreditCard" size={24} className="text-orange-400" />
+                  Пополнение баланса
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  Введите ваш игровой логин и сумму пополнения
+                </CardDescription>
               </CardHeader>
-              <CardContent className="text-center">
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• Цветной ник</li>
-                  <li>• Приоритет входа</li>
-                  <li>• Стартовый дом</li>
-                  <li>• Базовый транспорт</li>
-                </ul>
-                <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700" onClick={() => window.open('https://anypay.io', '_blank')}>
-                  Купить через AnyPay
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="login" className="text-white font-medium">Игровой логин</Label>
+                  <Input
+                    id="login"
+                    type="text"
+                    placeholder="Введите ваш ник в игре"
+                    value={donateLogin}
+                    onChange={(e) => setDonateLogin(e.target.value)}
+                    className="bg-black/30 border-orange-500/50 text-white placeholder:text-gray-400 focus:border-orange-400"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="amount" className="text-white font-medium">Сумма (руб.)</Label>
+                  <Input
+                    id="amount"
+                    type="number"
+                    placeholder="100"
+                    min="1"
+                    value={donateAmount}
+                    onChange={(e) => setDonateAmount(e.target.value)}
+                    className="bg-black/30 border-orange-500/50 text-white placeholder:text-gray-400 focus:border-orange-400"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-4 gap-2 mb-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setDonateAmount('100')}
+                    className="border-orange-500/50 text-orange-300 hover:bg-orange-500/20"
+                  >
+                    100₽
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setDonateAmount('250')}
+                    className="border-orange-500/50 text-orange-300 hover:bg-orange-500/20"
+                  >
+                    250₽
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setDonateAmount('500')}
+                    className="border-orange-500/50 text-orange-300 hover:bg-orange-500/20"
+                  >
+                    500₽
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setDonateAmount('1000')}
+                    className="border-orange-500/50 text-orange-300 hover:bg-orange-500/20"
+                  >
+                    1000₽
+                  </Button>
+                </div>
+                
+                <Button 
+                  size="lg" 
+                  onClick={handleDonate}
+                  className="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white font-semibold py-3 text-lg glow-orange"
+                >
+                  <Icon name="Wallet" size={20} className="mr-2" />
+                  Пополнить через AnyPay
                 </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-gradient-to-br from-orange-900/50 to-slate-900/50 border-orange-400/50 transform scale-105">
-              <CardHeader className="text-center">
-                <Badge className="mb-2 bg-orange-500 text-white">Популярный</Badge>
-                <CardTitle className="text-white text-xl">VIP</CardTitle>
-                <div className="text-3xl font-bold text-orange-400">₽599</div>
-              </CardHeader>
-              <CardContent className="text-center">
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• Всё из Житель</li>
-                  <li>• Премиум машины</li>
-                  <li>• Эксклюзивная одежда</li>
-                  <li>• VIP локации</li>
-                </ul>
-                <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700" onClick={() => window.open('https://anypay.io', '_blank')}>
-                  Купить через AnyPay
-                </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-gradient-to-br from-orange-900/30 to-slate-900/30 border-orange-500/20">
-              <CardHeader className="text-center">
-                <CardTitle className="text-white text-xl">Магнат</CardTitle>
-                <div className="text-3xl font-bold text-orange-400">₽999</div>
-              </CardHeader>
-              <CardContent className="text-center">
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• Всё из VIP</li>
-                  <li>• Суперкары</li>
-                  <li>• Пентхаус</li>
-                  <li>• Личный помощник</li>
-                </ul>
-                <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700" onClick={() => window.open('https://anypay.io', '_blank')}>
-                  Купить через AnyPay
-                </Button>
+                
+                <div className="text-center text-sm text-gray-400">
+                  🔒 Безопасная оплата через AnyPay
+                </div>
               </CardContent>
             </Card>
           </div>
